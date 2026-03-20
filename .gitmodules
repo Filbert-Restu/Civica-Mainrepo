@@ -1,0 +1,6 @@
+[submodule "Civica-Backend"]
+	path = Civica-Backend
+	url = https://github.com/Filbert-Restu/Civica-Backend.git
+[submodule "Civica-Frontend"]
+	path = Civica-Frontend
+	url = https://github.com/Filbert-Restu/Civica-Frontend.git
