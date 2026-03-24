@@ -1,0 +1,13 @@
+services:
+  minio:
+    image: minio/minio
+    container_name: civica-minio
+    ports:
+      - "9000:9000" # API Port (untuk Backend)
+      - "9001:9001" # Console Port (untuk Browser)
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    volumes:
+      - ./minio_data:/data # Data tetap aman meskipun container mati
+    command: server /data --console-address ":9001"
