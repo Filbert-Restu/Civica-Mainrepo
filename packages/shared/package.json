@@ -2,6 +2,17 @@
   "name": "@pelaporan/shared",
   "type": "module",
   "main": "./index.ts",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./*": {
+      "import": "./dist/*.js",
+      "types": "./dist/*.d.ts"
+    }
+  },
   "dependencies": {
     "zod": "^4.3.6"
   },

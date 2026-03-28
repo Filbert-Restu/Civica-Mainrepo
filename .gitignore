@@ -1,2 +1,5 @@
 /packages/shared/node_modules
+/packages/shared/*.js
+/packages/shared/schemas/*.js
+/packages/shared/dist
 minio_data
