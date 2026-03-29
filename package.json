@@ -1,0 +1,18 @@
+{
+    "private": true,
+    "name": "civica",
+    "scripts": {
+        "init": "git submodule update --init --recursive",
+        "install:all": "npm --prefix packages/shared install && npm --prefix Backend install && npm --prefix Frontend install",
+        "build:shared": "npm --prefix packages/shared run build",
+        "build:backend": "npm --prefix Backend run build",
+        "build:frontend": "npm --prefix Frontend run build",
+        "build": "npm run build:shared && npm run build:backend && npm run build:frontend",
+        "dev:backend": "npm --prefix Backend run dev",
+        "dev:frontend": "npm --prefix Frontend run dev",
+        "dev": "concurrently -n backend,frontend \"npm run dev:backend\" \"npm run dev:frontend\""
+    },
+    "devDependencies": {
+        "concurrently": "^9.0.0"
+    }
+}
