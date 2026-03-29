@@ -18,5 +18,19 @@ export const loginSchema = z.object({
     .regex(/[^A-Za-z0-9]/, "Harus mengandung simbol"),
 });
 
+export const changePasswordSchema = z.object({
+  currentPassword: z.string().min(8, "Password minimal 8 karakter"),
+  newPassword: z.string().min(8, "Password minimal 8 karakter"),
+  confirmPassword: z.string().min(8, "Password minimal 8 karakter"),
+}).refine((data) => data.newPassword === data.confirmPassword, {
+  message: "Password baru dan konfirmasi password tidak cocok",
+  path: ["confirmPassword"],
+});
+
+export const refreshTokenSchema = z.object({
+  refreshToken: z.string().min(1, "Refresh token harus disertakan"),
+});
+
 export type RegisterInput = z.infer<typeof registerSchema>;
 export type LoginInput = z.infer<typeof loginSchema>;
+export type ChangePasswordInput = z.infer<typeof changePasswordSchema>;
